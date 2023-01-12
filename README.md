@@ -17,6 +17,9 @@ git clone https://github.com/ConorFWild/update_event_map_headers.git
 # Install
 pip install -e ./update_event_map_headers
 
+# Create the options json
+echo "{'pandda_dir': 'path/to/pandda/dir', 'excluded_files': ['paths/to/excluded/files']}"
+
 # Run the code to update the headers
 python update_event_map_headers/update_event_map_headers.py path/to/pandda/dir
 ```

@@ -29,7 +29,7 @@ def get_event_map_files(pandda_dir: Path, excluded_files: list[Path]):
         event_map_file
         for event_map_files in event_map_files_nested
         for event_map_file in event_map_files
-        if event_map_file not in excluded_files
+        if event_map_file.resolve() not in excluded_files
     ]
 
     return event_map_files
