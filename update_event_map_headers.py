@@ -47,7 +47,7 @@ def update_event_map_spacegroup(event_map_file: Path):
         display even if this is the case, but the map is nonetheless not suitable 
         for further analysis and should not be used. Once the descision has been 
         made to exclude the map, this error can be prevented by adding the map
-        to the "exclude" key of the input json.
+        to the "excluded_files" key of the input json.
         """
 
         logger.error(error_message)
