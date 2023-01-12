@@ -39,7 +39,7 @@ def update_event_map_spacegroup(event_map_file: Path):
 
     ccp4.grid.spacegroup = gemmi.find_spacegroup_by_name("P 1")
 
-    ccp4.setup()
+    ccp4.setup(float("nan"))
 
     ccp4.update_ccp4_header(2, True)
 
