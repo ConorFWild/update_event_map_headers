@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm[toml]>=6.2", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "update_event_map_headers"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+description = "One line description of your module"
+dependencies = [
+    "gemmi==0.5.8",
+    "fire==0.5.0",
+    "loguru==0.6.0",
+] # Add project dependencies here, e.g. ["click", "numpy"]
+dynamic = ["version"]
+license.file = "LICENSE"
+readme = "README.rst"
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "mypy",
+    "flake8-isort",
+    "Flake8-pyproject",
+    "pipdeptree",
+    "pre-commit",
+    "pydata-sphinx-theme>=0.12",
+    "pytest-cov",
+    "sphinx-autobuild",
+    "sphinx-copybutton",
+    "sphinx-design",
+    "tox-direct",
+    "types-mock",
+]
+
+
+[project.urls]
+GitHub = "https://github.com/ConorFWild/update_event_map_headers"
+
+[[project.authors]] # Further authors may be added by duplicating this section
+email = "conor.wild@sky.com"
+name = "jfi22496"
