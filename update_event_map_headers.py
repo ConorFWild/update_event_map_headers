@@ -77,7 +77,7 @@ def update_event_map_spacegroups(options_json_path: str):
     logger.info(f"PanDDA dir is: {pandda_dir}")
     logger.info(
         "Excluding files: {excluded_files}".format(
-            [str(excluded_file) for excluded_file in exclude]
+            excluded_files=[str(excluded_file) for excluded_file in exclude]
         )
     )
 
