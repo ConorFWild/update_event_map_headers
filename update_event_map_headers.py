@@ -4,7 +4,7 @@ from pathlib import Path
 import fire
 import gemmi
 from loguru import logger
-
+import numpy as np
 
 class Constants:
     PANDDA_PROCESSED_DATASETS_DIR = "processed_datasets"
@@ -56,6 +56,10 @@ def update_event_map_spacegroup(event_map_file: Path):
 
     # ccp4.setup(float("nan"))
     ccp4.setup(0.0)
+
+    grid = ccp4.grid
+    arr = np.array(grid, copy=False)
+    arr[np.isnan(arr)] = 0.0
 
     ccp4.update_ccp4_header(2, True)
 
