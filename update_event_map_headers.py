@@ -69,8 +69,15 @@ def update_event_map_spacegroup(event_map_file: Path):
 
 def update_event_map_spacegroups(options_json_path: str):
 
-    with open(options_json_path, "r") as f:
-        options = json.load(f)
+    if Path(options_json_path).suffix == ".json":
+        with open(options_json_path, "r") as f:
+            options = json.load(f)
+    else:
+        options = {
+            "pandda_dir": options_json_path,
+            "excluded_files": []
+        }
+
 
     pandda_dir = options["pandda_dir"]
     exclude = [
