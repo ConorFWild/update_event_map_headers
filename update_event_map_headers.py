@@ -146,9 +146,11 @@ def recalculate_event_maps(pandda_dir):
     pandda_inspect_table = pd.read_csv(pandda_inspect_table_path)
 
     for _idx, _row in pandda_inspect_table.iterrows():
+        dtag = _row['dtag']
         dtag_dir = pandda_dir / 'processed_datasets' / _row['dtag']
         bdc = _row['1-BDC']
         event_idx = _row['event_idx']
+        print(f'{dtag} : {event_idx} : {bdc}')
         recalculate_event_map(dtag_dir, bdc, event_idx)
 
 def _get_pandda_dir_type(pandda_dir):
