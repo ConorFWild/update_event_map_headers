@@ -69,7 +69,7 @@ def update_event_map_spacegroup(event_map_file: Path):
     logger.debug(f"Updated the event map at: {event_map_file}")
 
 
-def recalculate_event_map(dtag_dir, bdc):
+def recalculate_event_map(dtag_dir, bdc, event_idx):
     dtag = dtag_dir.name
 
     mean_map_path = dtag_dir / f'{dtag}-ground-state-average-map.native.ccp4'
@@ -94,7 +94,7 @@ def recalculate_event_map(dtag_dir, bdc):
     event_map_grid_array = np.array(event_map_grid, copy=False)
     event_map_grid_array[:, :, :] = event_map_array[:, :, :]
 
-    event_map_path = dtag_dir / f'{dtag}-event_1_1-BDC_{bdc}_map.native.ccp4'
+    event_map_path = dtag_dir / f'{dtag}-event_{event_idx}_1-BDC_{bdc}_map.native.ccp4'
 
     ccp4 = gemmi.Ccp4Map()
     ccp4.grid = event_map_grid
@@ -148,7 +148,8 @@ def recalculate_event_maps(pandda_dir):
     for _idx, _row in pandda_inspect_table.iterrows():
         dtag_dir = pandda_dir / 'processed_datasets' / _row['dtag']
         bdc = _row['1-BDC']
-        recalculate_event_map(dtag_dir, bdc)
+        event_idx = _row['event_idx']
+        recalculate_event_map(dtag_dir, bdc, event_idx)
 
 def _get_pandda_dir_type(pandda_dir):
     if (pandda_dir / 'pandda.done').exists():
