@@ -152,13 +152,14 @@ def recalculate_event_maps(pandda_dir):
         recalculate_event_map(dtag_dir, bdc, event_idx)
 
 def _get_pandda_dir_type(pandda_dir):
-    if (Path(pandda_dir) / 'pandda.done').exists():
+    if (pandda_dir / 'pandda.done').exists():
         return 'pandda_1'
     else:
         return 'pandda_2'
 
 
 def dispatch(pandda_dir):
+    pandda_dir = Path(pandda_dir)
     pandda = _get_pandda_dir_type(pandda_dir)
 
     print(f'PanDDA type is: {pandda}')
