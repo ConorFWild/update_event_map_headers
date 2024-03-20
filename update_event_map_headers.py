@@ -150,7 +150,7 @@ def recalculate_event_maps(pandda_dir):
         dtag_dir = pandda_dir / 'processed_datasets' / _row['dtag']
         bdc = _row['1-BDC']
         event_idx = _row['event_idx']
-        print(f'{dtag} : {event_idx} : {bdc}')
+        print(f'{dtag} : {event_idx} : {bdc} : {round(1-bdc,2)}')
         recalculate_event_map(dtag_dir, bdc, event_idx)
 
 def _get_pandda_dir_type(pandda_dir):
