@@ -161,10 +161,13 @@ def _get_pandda_dir_type(pandda_dir):
 def dispatch(pandda_dir):
     pandda = _get_pandda_dir_type(pandda_dir)
 
+    print(f'PanDDA type is: {pandda}')
+
     if pandda == 'pandda_1':
         update_event_map_spacegroups(pandda_dir)
 
     elif pandda == 'pandda_2':
+        print(f'\tRecalculating event maps!')
         recalculate_event_maps(pandda_dir)
     else:
         raise Exception
