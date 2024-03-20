@@ -174,4 +174,4 @@ def dispatch(pandda_dir):
 
 
 if __name__ == "__main__":
-    fire.Fire(update_event_map_spacegroups)
+    fire.Fire(dispatch)
