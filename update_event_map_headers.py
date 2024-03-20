@@ -86,7 +86,7 @@ def recalculate_event_map(dtag_dir, bdc, event_idx):
     mean_map_array = np.array(mean_map_grid, copy=False)
     xmap_array = np.array(xmap_grid, copy=False)
 
-    event_map_array = (xmap_array - (bdc * mean_map_array)) / (1 - bdc)
+    event_map_array = (xmap_array - ((1-bdc) * mean_map_array)) / (bdc)
 
     event_map_grid = gemmi.FloatGrid(*[xmap_grid.nu, xmap_grid.nv, xmap_grid.nw])
     event_map_grid.spacegroup = gemmi.find_spacegroup_by_name("P 1")
