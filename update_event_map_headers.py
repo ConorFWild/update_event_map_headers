@@ -171,7 +171,7 @@ def dispatch(pandda_dir):
 
     elif pandda == 'pandda_2':
         print(f'\tRecalculating event maps!')
-        recalculate_event_maps(pandda_dir)
+        update_event_map_spacegroups(pandda_dir)
     else:
         raise Exception
 
